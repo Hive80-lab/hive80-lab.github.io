@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Free Ops Templates - Hive80 Lab</title>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #ffffff; }
+        .container { background: rgba(255,255,255,0.05); border-radius: 12px; padding: 30px; border: 1px solid rgba(255,255,255,0.1); }
+        h1 { color: #00d4ff; margin-bottom: 10px; }
+        h2 { color: #ffffff; margin-top: 20px; margin-bottom: 10px; }
+        .tag { background: rgba(0,212,255,0.2); padding: 4px 12px; border-radius: 20px; font-size: 0.85em; display: inline-block; margin: 0 5px 5px 0; }
+        .email-form { display: flex; flex-direction: column; gap: 15px; margin-top: 25px; }
+        input[type="email"] { padding: 12px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.3); background: rgba(255,255,255,0.1); color: white; font-size: 16px; width: 100%; box-sizing: border-box; }
+        input::placeholder { color: rgba(255,255,255,0.6); }
+        button { padding: 12px; border-radius: 6px; border: none; background: #00d4ff; color: #1a1a2e; font-weight: bold; font-size: 16px; cursor: pointer; transition: transform 0.2s; }
+        button:hover { transform: scale(1.02); }
+        .promise { font-size: 0.9em; color: rgba(255,255,255,0.7); margin-top: 15px; line-height: 1.5; }
+        .product-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 15px; margin-top: 25px; }
+        .product-card { background: rgba(255,255,255,0.03); padding: 15px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.05); }
+        .product-card h3 { color: #ffffff; font-size: 1em; margin-bottom: 5px; }
+        .product-card a.buy { display: inline-block; margin-top: 8px; color: #00d4ff; text-decoration: none; font-size: 0.9em; font-weight: 600; }
+        .product-card a.buy:hover { text-decoration: underline; }
+        .instant { text-align: center; margin-top: 10px; }
+        .instant a { color: #00d4ff; font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎁 Free Ops Templates Library</h1>
+        <p>Join 2,500+ ops teams getting practical templates delivered to their inbox.</p>
+
+        <div class="product-grid">
+            <div class="product-card">
+                <h3>First 30 Minutes</h3>
+                <p>Free Incident Response Checklist</p>
+                <span class="tag">#security</span>
+                <span class="tag">#checklist</span>
+                <a class="buy" href="https://hive80lab.gumroad.com/l/first-30-minutes">Get it free now →</a>
+            </div>
+            <div class="product-card">
+                <h3>Shadow IT Audit</h3>
+                <p>Find Every SaaS Tool in Your Team</p>
+                <span class="tag">#security</span>
+                <span class="tag">#ops</span>
+                <a class="buy" href="https://hive80lab.gumroad.com/l/ops-starter-kit">In the Starter Kit →</a>
+            </div>
+            <div class="product-card">
+                <h3>Restaurant Sales Report</h3>
+                <p>20-Minute Revenue Clarity Template</p>
+                <span class="tag">#restaurant</span>
+                <span class="tag">#ops</span>
+                <a class="buy" href="https://hive80lab.gumroad.com/l/ops-starter-kit">In the Starter Kit →</a>
+            </div>
+        </div>
+
+        <form class="email-form" action="https://protonmail.com/compose" method="get" target="_blank" onsubmit="this.querySelector('[name=body]').value = 'New signup for Ops Templates - ' + this.querySelector('[name=from_email]').value;">
+            <input type="email" name="from_email" placeholder="Enter your email" required />
+            <input type="hidden" name="to" value="hcchb@proton.me" />
+            <input type="hidden" name="subject" value="New ops templates signup - Hive80 Lab" />
+            <input type="hidden" name="body" value="New signup for Ops Templates - " />
+            <button type="submit">📩 Get All 10+ Templates</button>
+        </form>
+
+        <p class="instant">⏱ Don't want to wait? <a href="https://hive80lab.gumroad.com/l/first-30-minutes">Download the First 30 Minutes checklist free, instantly</a>.</p>
+
+        <p class="promise">✅ 100% spam-free. Immediate delivery to your inbox. Unsubscribe anytime.</p>
+
+        <h2>🛒 Ready to go deeper?</h2>
+        <div class="product-grid">
+            <div class="product-card">
+                <h3>Ops Starter Kit</h3>
+                <p>Full readiness path for 1–50 person teams</p>
+                <a class="buy" href="https://hive80lab.gumroad.com/l/ops-starter-kit">A$14 →</a>
+            </div>
+            <div class="product-card">
+                <h3>Ops Mega Bundle</h3>
+                <p>All 5 kits — worth $88, get everything</p>
+                <a class="buy" href="https://hive80lab.gumroad.com/l/ops-mega-bundle">$29 →</a>
+            </div>
+            <div class="product-card">
+                <h3>Custom Incident Runbook</h3>
+                <p>Done-for-you, tailored to your stack, 48h delivery</p>
+                <a class="buy" href="https://hive80lab.gumroad.com/l/hkljh">Get yours →</a>
+            </div>
+        </div>
+    </div>
+
+    <p style="text-align:center; font-size:0.8em; color:rgba(255,255,255,0.5); margin-top:20px;">© Hive80 Lab · Practical readiness for teams without a SOC</p>
+</body>
+</html>

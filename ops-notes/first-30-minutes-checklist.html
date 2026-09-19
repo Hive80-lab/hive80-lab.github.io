@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The First 30 Minutes — Free Incident Response Checklist | Hive80 Lab</title>
+    <meta name="description" content="Your team has no security staff. An incident just started. This is exactly what to do in the first 30 minutes — free checklist from Hive80 Lab.">
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; max-width: 680px; margin: 0 auto; padding: 20px; background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #e8e8f0; line-height: 1.6; }
+        a { color: #00d4ff; }
+        h1 { color: #00d4ff; margin-bottom: 4px; }
+        h2 { color: #ffffff; margin-top: 28px; border-bottom: 1px solid rgba(255,255,255,0.12); padding-bottom: 6px; }
+        .sub { color: rgba(255,255,255,0.65); margin-top: 0; }
+        .cta { background: #00d4ff; color: #1a1a2e; font-weight: bold; padding: 14px 22px; border-radius: 8px; text-decoration: none; display: inline-block; margin: 18px 0; transition: transform 0.2s; }
+        .cta:hover { transform: scale(1.03); }
+        .cta.secondary { background: transparent; color: #00d4ff; border: 1px solid #00d4ff; }
+        ol li, ul li { margin-bottom: 10px; }
+        .card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 20px 24px; margin: 18px 0; }
+        code { background: rgba(0,212,255,0.15); padding: 2px 6px; border-radius: 4px; font-size: 0.9em; }
+        .foot { margin-top: 30px; font-size: 0.85em; color: rgba(255,255,255,0.5); }
+        .banner { background: rgba(0,212,255,0.12); border: 1px solid rgba(0,212,255,0.4); border-radius: 8px; padding: 12px 16px; font-size: 0.95em; }
+    </style>
+</head>
+<body>
+    <h1>The First 30 Minutes</h1>
+    <p class="sub">An incident just started. You have no security staff. Here is exactly what to do — numbered, in order. Print this.</p>
+
+    <div class="banner">⚡ This is the <strong>free quick-start</strong>. The full version — severity matrix, 5 tabletop exercises, comms templates, containment checklists for Linux/macOS/Windows — is also <strong>free</strong>: <a href="https://hive80lab.gumroad.com/l/first-30-minutes">grab the complete First 30 Minutes kit</a>.</div>
+
+    <h2>Minute 0–5: Don't panic, don't guess</h2>
+    <ol>
+        <li><strong>Say it out loud.</strong> Message one accountable person: <em>"Possible incident, investigating, next update at :10"</em>. No heroics, no silence.</li>
+        <li><strong>Start a timestamped log</strong> (one shared doc). Every action, every time. You will need it twice: during, and after.</li>
+        <li><strong>Do NOT power off affected machines</strong> unless data is being actively destroyed. Memory and live state are evidence.</li>
+    </ol>
+
+    <h2>Minute 5–15: Scope it</h2>
+    <ol>
+        <li><strong>One question:</strong> what is actually broken or exposed? Write it as one sentence. If you can't, you're still gathering.</li>
+        <li><strong>Check the boring things first:</strong> is it a vendor outage? A failed update? An expired certificate? Half of "breaches" are Tuesdays.</li>
+        <li><strong>Identify affected systems:</strong> who can reach the affected service? What data does it touch? Customer data changes everything — see severity below.</li>
+    </ol>
+
+    <h2>Minute 15–30: Contain and communicate</h2>
+    <ol>
+        <li><strong>Cheap containment wins:</strong> revoke suspicious sessions, rotate exposed credentials, block the malicious source at the firewall, take the affected service offline if revenue loss &lt; breach risk.</li>
+        <li><strong>Severity call (keep it simple):</strong>
+            <ul>
+                <li><strong>SEV1</strong> — customer data exposed or revenue stopped → all hands, exec informed now</li>
+                <li><strong>SEV2</strong> — internal data or single system affected → respond today</li>
+                <li><strong>SEV3</strong> — suspicious but unconfirmed → monitor, revisit in 24h</li>
+            </ul>
+        </li>
+        <li><strong>First stakeholder message</strong> (copy-paste): <em>"At [time] we detected [issue]. Impact: [known impact]. We have [action taken]. Next update: [time]."</em> No speculation. No blame.</li>
+    </ol>
+
+    <div class="card">
+        <h2 style="margin-top:0; border:none;">⏱ The trap to avoid</h2>
+        <p>The first 30 minutes decide whether the incident costs you a bad afternoon or a bad quarter. Teams without a plan waste them on <em>deciding who should respond</em>. Decide now, while nothing is burning — that's what the drills are for.</p>
+        <a class="cta" href="https://hive80lab.gumroad.com/l/first-30-minutes">Get the full First 30 Minutes kit — FREE →</a>
+        <p style="font-size:0.9em; color:rgba(255,255,255,0.7);">Includes the fill-in-the-blank plan, SEV matrix with escalation authority, 5 tabletop exercises (ransomware, BEC, insider, lost laptop, exfiltration), first-24-hours comms templates, and containment checklists.</p>
+    </div>
+
+    <div class="card">
+        <h2 style="margin-top:0; border:none;">Ready for the bad day before it arrives?</h2>
+        <p>Everything a 1–50 person team needs, built by HIVE Ops — a security engineering lab for small teams:</p>
+        <ul>
+            <li><strong><a href="https://hive80lab.gumroad.com/l/ops-starter-kit">Ops Starter Kit</a></strong> — A$14 · the full readiness path</li>
+            <li><strong><a href="https://hive80lab.gumroad.com/l/ops-mega-bundle">Ops Mega Bundle</a></strong> — $29 · all 5 kits (worth $88)</li>
+            <li><strong><a href="https://hive80lab.gumroad.com/l/hkljh">Custom Incident Runbook</a></strong> — done-for-you, tailored to your stack, 48h delivery</li>
+        </ul>
+        <a class="cta secondary" href="https://hive80lab.gumroad.com/">Browse all Hive80 Lab kits →</a>
+    </div>
+
+    <p class="foot">© Hive80 Lab · Practical readiness for teams without a SOC · 30-day refunds, no reason needed.</p>
+</body>
+</html>
