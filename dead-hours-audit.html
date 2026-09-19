@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Dead-Hours Audit — What Your Servers Do Between 1 AM and 6 AM Without Supervision | Hive80 Lab</title>
+<meta name="description" content="Nobody watches production between 1 AM and 6 AM. A 20-minute audit that makes the dead hours honest, plus the three artifacts that turn night coverage into retainer revenue.">
+<link rel="canonical" href="https://hive80-lab.github.io/dead-hours-audit.html">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:860px;margin:0 auto;padding:24px;color:#222;line-height:1.65}
+h1{color:#1a2f4b;font-size:1.7em;margin-bottom:8px}.sub{color:#666;margin-bottom:28px}
+h2{color:#2c3e50;margin:28px 0 12px;border-bottom:2px solid #3498db;padding-bottom:6px}
+li{margin:8px 0 8px 20px}.cta{background:#2c3e50;color:#fff;padding:20px;border-radius:8px;margin:26px 0;text-align:center}.cta a{color:#7fd0ff;font-weight:bold}
+a{color:#2980b9}.note{background:#fff8e1;border-left:4px solid #f39c12;padding:12px;margin:18px 0}
+code{background:#eef2f7;padding:2px 6px;border-radius:4px;font-size:0.9em}
+</style>
+</head>
+<body>
+<h1>The Dead-Hours Audit</h1>
+<p class="sub">What your servers do between 1 AM and 6 AM without supervision · Hive80 Lab · Sep 2026</p>
+
+<p>Nobody watches production between 1 AM and 6 AM. Not the on-call rotation (it's a phone in a drawer), not the dashboards (nobody is awake to read them), not the backups ("they ran last Tuesday, probably"). The dead hours are where reliability reputations are actually made &mdash; and where most teams are silently naked.</p>
+
+<h2>The 20-minute audit (run it tonight)</h2>
+<ol>
+<li><strong>List what actually runs at night (5 min).</strong> <code>crontab -l</code> on every box, <code>systemctl list-timers</code>, your CI's scheduled pipelines, nightly imports, backups, cert renewals. Most teams discover 2&ndash;3 jobs they forgot existed.</li>
+<li><strong>Pick the worst one and pause it (2 min).</strong> A real job, tonight. Not a staging drill.</li>
+<li><strong>Time the detection (10 min).</strong> Start a timer. Who notices: an alert, a human, or nobody until morning? If the answer is "nobody for 6+ hours," you now know the true value of your night monitoring: zero.</li>
+<li><strong>Write the one-line finding (3 min).</strong> "Job X failed at 02:14. First detection: none. Recovery: manual at 09:00. Cost: one morning of fire-fighting." That line is worth more than any SLO slide.</li>
+</ol>
+
+<h2>The three artifacts that fix the dead hours</h2>
+<ol>
+<li><strong>A heartbeat that pages a human.</strong> Check every 1&ndash;5 minutes; two consecutive failures push to a phone. If alerting requires opening a tab, it is not night coverage &mdash; it is day coverage with a sad login page.</li>
+<li><strong>A morning report the client can read.</strong> One email at 7 AM, plain language: what ran, what recovered, what needs a decision. Clients do not churn over outages; they churn over silence.</li>
+<li><strong>Runbooks a junior can follow at 3 AM.</strong> Symptom, first command, decision branch, escalation threshold, and what "fixed" looks like. If only one person can execute it, it is a diary, not a runbook.</li>
+</ol>
+
+<div class="note"><strong>The retainer math:</strong> same servers, same scripts &mdash; but with these three artifacts, a $250/month "maintenance" plan becomes a $1,500/month "24/7 peace of mind" plan. Night evidence is what clients think they are already paying for.</div>
+
+<div class="cta">Free: the one-page "first 15 minutes" runbook &rarr; <a href="https://hive80lab.gumroad.com/l/first-30-minutes-free">hive80lab.gumroad.com/l/first-30-minutes-free</a><br>
+Full white-label night-ops kit &mdash; runbooks, heartbeat scripts, morning-report templates: <a href="https://hive80lab.gumroad.com/l/agent-ops-24-7">hive80lab.gumroad.com/l/agent-ops-24-7</a><br>
+Want an outside pair of eyes on your real environment? $149 Ops Audit, findings in 5 days &rarr; <a href="https://hive80lab.gumroad.com/l/ljogci">hive80lab.gumroad.com/l/ljogci</a></div>
+
+<p>Run the audit tonight. Your competitors are asleep &mdash; that is the whole point.</p>
+</body>
+</html>
