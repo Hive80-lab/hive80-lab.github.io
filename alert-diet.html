@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The 3 AM Alert Diet — Only Pages That Are Worth Answering | Hive80 Lab</title>
+<meta name="description" content="Most on-call pain is from alerts that were never worth a page. The three alert classes that survived a year of 'was this page useful?' reviews, and how to demote the rest.">
+<link rel="canonical" href="https://hive80-lab.github.io/alert-diet.html">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:860px;margin:0 auto;padding:24px;color:#222;line-height:1.65}
+h1{color:#1a2f4b;font-size:1.7em;margin-bottom:8px}.sub{color:#666;margin-bottom:28px}
+h2{color:#2c3e50;margin:28px 0 12px;border-bottom:2px solid #3498db;padding-bottom:6px}
+li{margin:8px 0 8px 20px}.cta{background:#2c3e50;color:#fff;padding:20px;border-radius:8px;margin:26px 0;text-align:center}.cta a{color:#7fd0ff;font-weight:bold}
+a{color:#2980b9}.note{background:#fff8e1;border-left:4px solid #f39c12;padding:12px;margin:18px 0}
+</style>
+</head>
+<body>
+<h1>The 3 AM Alert Diet</h1>
+<p class="sub">Only pages that are worth answering · Hive80 Lab · Sep 2026</p>
+
+<p>Most on-call pain isn't from incidents. It's from alerts that were never worth a page in the first place. A page should be a contract: something is broken, a human can fix it now, and waiting makes it worse. Everything else belongs in a dashboard.</p>
+
+<h2>The three alert classes that survived review</h2>
+<ol>
+<li><strong>Error budget burn rate.</strong> Not raw 5xx counts — burn rate against the budget you promised customers. Fires exactly when an SLO is about to break, never "just because".</li>
+<li><strong>Queue age, not queue depth.</strong> A queue can be huge and healthy, or tiny and dying. Depth lies; the age of the oldest message is the truth about whether someone's order will actually process.</li>
+<li><strong>Restore-path heartbeat.</strong> Not "is the backup job green" — is the restore path actually exercisable right now. A backup you haven't restored from this quarter is a theory with a cron job.</li>
+</ol>
+
+<h2>How to demote one alert today</h2>
+<p>Pick your noisiest alert. Ask three questions: can a human act on it right now? will waiting an hour change the outcome? did the last ten pages of it lead to action? Any "no" demotes it to dashboard-only. One per day, and your rotation is unrecognizable in two weeks.</p>
+
+<div class="note"><strong>The result we've seen:</strong> paging volume drops ~70%, and — the part that matters — nobody ignores a page since. Fewer pages isn't the goal. <em>Pages that are always worth answering</em> is the goal.</div>
+
+<div class="cta">Free starter: the first-30-minutes incident runbook → <a href="https://hive80lab.gumroad.com/l/first-30-minutes-free">hive80lab.gumroad.com/l/first-30-minutes-free</a><br>
+Full 24/7 Agent Ops Kit — runbooks, monitoring scripts, weekly drills: → <a href="https://hive80lab.gumroad.com/l/agent-ops-24-7">hive80lab.gumroad.com/l/agent-ops-24-7</a><br>
+Want an outside pair of eyes? $149 Small-Team Ops Audit, prioritized findings in 5 days → <a href="https://hive80lab.gumroad.com/l/ljogci">hive80lab.gumroad.com/l/ljogci</a></div>
+</body>
+</html>
