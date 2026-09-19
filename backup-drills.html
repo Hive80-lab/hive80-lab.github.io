@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Backups That Fail at 2 AM — 7 Reasons a Restore Drill Beats a Backup Check | Hive80 Lab</title>
+<meta name="description" content="A green backup dashboard means nothing at 2 AM. The seven failure modes we find in small-team restore capability, and the one-hour monthly drill that catches all of them.">
+<link rel="canonical" href="https://hive80-lab.github.io/backup-drills.html">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;max-width:860px;margin:0 auto;padding:24px;color:#222;line-height:1.65}
+h1{color:#1a2f4b;font-size:1.7em;margin-bottom:8px}.sub{color:#666;margin-bottom:28px}
+h2{color:#2c3e50;margin:28px 0 12px;border-bottom:2px solid #3498db;padding-bottom:6px}
+li{margin:8px 0 8px 20px}.cta{background:#2c3e50;color:#fff;padding:20px;border-radius:8px;margin:26px 0;text-align:center}.cta a{color:#7fd0ff;font-weight:bold}
+a{color:#2980b9}.note{background:#fff8e1;border-left:4px solid #f39c12;padding:12px;margin:18px 0}
+</style>
+</head>
+<body>
+<h1>Backups That Fail at 2 AM</h1>
+<p class="sub">7 reasons a restore drill beats a backup check · Hive80 Lab · Sep 2026</p>
+
+<p>Most small teams believe they have backups. What they actually have is a backup <em>job</em> — a process that runs, shows green, and has never once been asked to give the data back. Those are different things, and the gap between them is where companies lose weeks.</p>
+
+<h2>The seven failure modes</h2>
+<ol>
+<li><strong>The job backs up the wrong volume.</strong> Somebody moved the database months ago. The job still runs. It is protecting a directory that is now empty.</li>
+<li><strong>Credentials rotated and the agent kept the old ones.</strong> The job errors quietly. Alerting goes to a mailbox nobody owns anymore.</li>
+<li><strong>Retention is a lie.</strong> Storage filled up in March. Since then every "successful" backup overwrote the only copy that existed.</li>
+<li><strong>The restore path was never tested.</strong> The company discovers that restoring requires a console login held by a contractor who left in 2024.</li>
+<li><strong>RPO is "whenever the job runs" and RTO is "however long it takes".</strong> Neither number has ever been written down, so nobody can be angry about them.</li>
+<li><strong>The restore test ran once, from the same disk the backup lives on.</strong> It proved nothing except that copies of files exist.</li>
+<li><strong>Offsite copy exists but is encrypted with a key stored in the backup.</strong> The password-manager backup that was lost with the laptop.</li>
+</ol>
+
+<div class="note"><strong>The fix is boring and cheap:</strong> a scheduled restore drill. Not a backup check — a <em>restore</em>. Pick one service, restore last night's copy to a scratch box, time it, write the number down, fix whatever broke. One hour a month. Every failure above is caught by that single routine.</div>
+
+<h2>The one-page drill</h2>
+<ul>
+<li>Pick the service whose loss would hurt most (not the easiest one).</li>
+<li>Restore <em>yesterday's</em> copy to a scratch machine — never the live one.</li>
+<li>Time: first byte, full restore, application-start. Write all three down.</li>
+<li>Score: pass only if the application actually starts and data verifies.</li>
+<li>Fix one failure mode per month. Re-run.</li>
+</ul>
+
+<div class="cta">Free: the one-page restore-drill runbook → <a href="https://hive80lab.gumroad.com/l/backup-drill-runbook">hive80lab.gumroad.com/l/backup-drill-runbook</a><br>
+Full kit — IR, backups, onboarding/offboarding, vendor review checklists: $14 one-time → <a href="https://hive80lab.gumroad.com/l/ops-starter-kit">hive80lab.gumroad.com/l/ops-starter-kit</a><br>
+Want an outside pair of eyes on your real environment? $149 Ops Audit, findings in 5 days → <a href="https://hive80lab.gumroad.com/l/ljogci">hive80lab.gumroad.com/l/ljogci</a></div>
+
+<p>Run the drill this month. The green dashboard will still be green. That was never the point.</p>
+</body>
+</html>
